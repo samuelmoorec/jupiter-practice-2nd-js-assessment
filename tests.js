@@ -2,7 +2,7 @@
 
     "use strict";
 
-    /**
+    /**TODO: Need to update this list
      * Tests for the following functions. See README.md for more detail.
      * isTrue
      * isFalse
@@ -20,45 +20,66 @@
     const randomBoolean = Boolean(Math.round(Math.random()))
     const randomNumber = Math.ceil(Math.random() * 100)
 
-    describe('concat', () => {
+    describe('isOdd', () => {
         it('should be a defined function', () => {
-            expect(typeof concat).toBe('function');
+            expect(typeof isOdd).toBe('function');
         })
-        it('should return a string when passed to strings', () => {
-            expect(typeof concat("hello", "world")).toBe('string')
+        it('should return a boolean value if the number 3 is passed', () => {
+            expect(typeof isOdd(3)).toBe('boolean')
         })
-        it('should return "helloworld" when passed "hello" and "world" as the two inputs.', () => {
-            expect(concat("hello", "world")).toBe("helloworld");
+        it('should return true if the number 3 is passed', () => {
+            expect(isOdd(3)).toBe(true);
         })
-        it('should return "Codeup" when passed "Code" and "up" as the two inputs', () => {
-            expect(concat("Code", "up")).toBe("Codeup")
+        it('should return false if the number 2 is passed', () => {
+            expect(isOdd(2)).toBe(false);
         })
-        it('should return "42" when passed the number 4 and 2, treating each input as a string', () => {
-            expect(concat(4, 2)).toBe("42")
+        it('should return true if the number 73 is passed', () => {
+            expect(isOdd(73)).toBe(true);
         })
-        it('should return "truetrue" when passed true and true', () => {
-            expect(concat(true, true)).toBe("truetrue")
+        it('should return false if the number 200 is passed', () => {
+            expect(isOdd(200)).toBe(false);
+        })
+        it('should return true if the string "23" is passed', () => {
+            expect(isOdd("3")).toBe(true);
+        })
+        it('should return true if the string "20" is passed', () => {
+            expect(isOdd("2")).toBe(false);
+        })
+        it('should return false if the string "three" is passed', () => {
+            expect(isOdd("three")).toBe(false);
+        })
+        it('should return false if NaN is passed', () => {
+            expect(isOdd(NaN)).toBe(false);
         })
     })
 
-    describe('and', () => {
+    describe('isVowel', () => {
         it('should be a defined function', () => {
-            expect(typeof and).toBe('function')
+            expect(typeof isVowel).toBe('function');
         })
-        it('should return a boolean when passed two boolean values', () => {
-            expect(typeof and(randomBoolean, false)).toBe('boolean')
+        it('should return a boolean value if the string "a" is passed', () => {
+            expect(typeof isVowel('a')).toBe('boolean');
         })
-        it('should return true when passed with true and true as the inputs', () => {
-            expect(and(true, true)).toBe(true)
+        it('should return true if "e" is passed', () => {
+            expect(isVowel('e')).toBe(true);
         })
-        it('should return false when passed true and false as the inputs', () => {
-            expect(and(false, true)).toBe(false)
+        it('should return true if "u" is passed', () => {
+            expect(isVowel('u')).toBe(true);
         })
-        it('should return false when passed false and false as inputs', () => {
-            expect(and(false, false)).toBe(false)
+        it('should return true if "I" is passed', () => {
+            expect(isVowel('I')).toBe(true);
         })
-        it('should return "world" when passed the inputs "hello" and "world" in that order', () => {
-            expect(and("hello", "world")).toBe("world")
+        it('should return false if "Q" is passed', () => {
+            expect(isVowel("Q")).toBe(false);
+        })
+        it('should return false if "Y" is passed', () => {
+            expect(isVowel("Y")).toBe(false);
+        })
+        it('should return false if the number 1 is passed', () => {
+            expect(isVowel(1)).toBe(false);
+        })
+        it('should return false if the number -1 is passed', () => {
+            expect(isVowel(-1)).toBe(false);
         })
     })
 

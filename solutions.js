@@ -9,26 +9,73 @@
  * If you don't know what an iffe is, don't worry about it :)
  *
  * This file is for defining the following functions. See README.md for more detail.
- * isTrue
- * isFalse
- * not
- * addOne
- * isEven
- * isIdentical
- * isEqual
- * or
- * and
- * concat
  */
 
-/*Define a function named isTrue that takes in any input and returns true if the input provided is exactly equal to true in value and data type.*/
-/*isTrue(true)             // true
+
+// Define a function named isOdd that takes in any input and returns true if the input is an odd number, return false for any other situation. You do not need to consider floating-point and decimal numbers.
+function isOdd(num) {
+    if (isNaN(num)) {
+        return false;
+    }
+    return num % 2 !== 0;
+}
+
+/*console.log(isOdd(3)); // true
+console.log(isOdd(2)); // false
+console.log(isOdd(73)); // true
+console.log(isOdd(200)); // false
+console.log(isOdd("23")); // true
+console.log(isOdd("20")); // false
+console.log(isOdd("three")); // false
+console.log(isOdd(NaN)); // false*/
+
+// Define a function named isVowel that takes in a single character and returns true if the character is a vowel. *Not including the letter 'y'
+function isVowel(char) {
+    switch (char) {
+        case 'a':
+        case 'A':
+        case 'e':
+        case 'E':
+        case 'i':
+        case 'I':
+        case 'o':
+        case 'O':
+        case 'u':
+        case 'U':
+            return true;
+        default:
+            return false;
+    }
+}
+
+// Define a function named combineStrings that has two parameters, if both parameters are strings, then return a concatenated string of both parameters.
+
+
+
+
+/*
+console.log(isVowel('e')); // true
+console.log(isVowel('u')); // true
+console.log(isVowel('I')); // true
+console.log(isVowel('Q')); // false
+console.log(isVowel('Y')); // false
+console.log(isVowel(1)); // false
+console.log(isVowel(-1)); // false
+*/
+
+
+
+
+/*
+
+/!*Define a function named isTrue that takes in any input and returns true if the input provided is exactly equal to true in value and data type.*!/
+/!*isTrue(true)             // true
  isTrue(false)            // false
  isTrue(0)                // false
  isTrue(null)             // false
  isTrue("true")           // false
  isTrue("Banana")         // false
- isTrue([1, 2])           // false*/
+ isTrue([1, 2])           // false*!/
 let isTrue = function (input) {
     switch (input) {
         case true:
@@ -49,7 +96,7 @@ console.log(isTrue("Banana"));         // false
 console.log(isTrue([1, 2]));           // false
 console.log("---Done isTrue----");
 
-/*Define a function named isFalse that takes in a value and returns a true if and only if the provided input is equal to false in both type and value.
+/!*Define a function named isFalse that takes in a value and returns a true if and only if the provided input is equal to false in both type and value.
 
  isFalse(false)             // true
  isFalse(true)              // false
@@ -57,7 +104,7 @@ console.log("---Done isTrue----");
  isFalse(null)              // false
  isFalse("")                // false
  isFalse("Banana")          // false
- isFalse([1, 2])            // false*/
+ isFalse([1, 2])            // false*!/
 let isFalse = function (input) {
     switch (input) {
         case true:
@@ -78,7 +125,7 @@ console.log(isFalse("Banana"));          // false
 console.log(isFalse([1, 2]));            // false
 console.log("---Done isFalse----");
 
-/*Define a function named not that takes in any input and returns the boolean opposite of the provided input.
+/!*Define a function named not that takes in any input and returns the boolean opposite of the provided input.
 
  not(false)                  // true
  not(0)                      // true
@@ -89,7 +136,7 @@ console.log("---Done isFalse----");
  not(true)                   // false
  not("something")            // false
  not(Infinity)               // false
- not(123)                    // false*/
+ not(123)                    // false*!/
 let not = function (input) {
     // return true if it's NaN
     if (isNaN(input) && (typeof input === "number")) {
@@ -127,7 +174,7 @@ console.log(not(123));                    // false*
 console.log("---Done not----");
 
 
-/*Define a function named addOne that takes in a single input. If the input is a number or a numeric string, return the value plus one.
+/!*Define a function named addOne that takes in a single input. If the input is a number or a numeric string, return the value plus one.
 
  addOne(0)                    // 1
  addOne(2)                    // 3
@@ -138,7 +185,7 @@ console.log("---Done not----");
  addOne("0")                  // 1
  addOne("banana")             // NaN
  addOne(true)                 // NaN
- addOne(NaN)                  // NaN*/
+ addOne(NaN)                  // NaN*!/
 
 let addOne = function (input) {
     return Number(input) + 1;
@@ -158,7 +205,7 @@ console.log(addOne(NaN));                  // NaN
 console.log("---Done addOne----");
 
 
-/*Define a function named isEven that takes in a single input. If the input is an even number or a string containing an even number, return true. Any other input should return false for the output.
+/!*Define a function named isEven that takes in a single input. If the input is an even number or a string containing an even number, return true. Any other input should return false for the output.
 
  isEven(2)                   // true
  isEven(-8)                  // true
@@ -167,7 +214,7 @@ console.log("---Done addOne----");
  isEven(1)                   // false
  isEven("-3")                // false
  isEven(false)               // false
- isEven("banana")            // false*/
+ isEven("banana")            // false*!/
 
 let isEven = function (input) {
     if (input === false) {
@@ -187,7 +234,7 @@ console.log(isEven(false));               // false
 console.log(isEven("banana"));            // false
 console.log("---Done isEven----");
 
-/*Define a function named isIdentical that takes in two input arguments. If each input is equal both in data type and in value, then return true. If the values are not the same data type or not the same value, return false.
+/!*Define a function named isIdentical that takes in two input arguments. If each input is equal both in data type and in value, then return true. If the values are not the same data type or not the same value, return false.
 
  isIdentical(3, 3)                     // true
  isIdentical(false, false)             // true
@@ -195,7 +242,7 @@ console.log("---Done isEven----");
  isIdentical(3, 3.0)                   // true
  isIdentical(undefined, undefined)     // true
  isIdentical(2, "2")                   // false
- isIdentical("javascript", "java")     // false*/
+ isIdentical("javascript", "java")     // false*!/
 
 let isIdentical = function (input1, input2) {
     return (input1 === input2);
@@ -211,14 +258,14 @@ console.log(isIdentical(2, "2"));                   // false
 console.log(isIdentical("javascript", "java"));     // false
 console.log("---Done isIdentical----");
 
-/** Define a function named isEqual that takes in two input arguments. If each argument is equal only in value, then return true. Otherwise return false.
+/!** Define a function named isEqual that takes in two input arguments. If each argument is equal only in value, then return true. Otherwise return false.
 
  isEqual(3, "3")                       // true
  isEqual("abc123", "abc123")           // true
  isEqual(true, 1)                      // true
  isEqual(0, false)                     // true
  isEqual(4, -5)                        // false
- isEqual("java", "javascript")         // false*/
+ isEqual("java", "javascript")         // false*!/
 let isEqual = function (input1, input2) {
     return (input1 == input2);
 };
@@ -232,13 +279,13 @@ console.log(isEqual(4, -5));                        // false
 console.log(isEqual("java", "javascript"));         // false
 console.log("---Done isEqual----");
 
-/*Define a function named or that takes in two input arguments. The output returned should be the result of an or operation on both inputs.
+/!*Define a function named or that takes in two input arguments. The output returned should be the result of an or operation on both inputs.
 
  or(true, true)                    // true
  or(true, false)                   // true
  or(false, true)                   // true
  or(false, false)                  // false
- or("hello", "world")              // "hello" (this behavior is non-obvious, research more!)*/
+ or("hello", "world")              // "hello" (this behavior is non-obvious, research more!)*!/
 let or = function (input1, input2) {
     return (input1 || input2);
 };
@@ -251,13 +298,13 @@ console.log(or(false, false));                  // false
 console.log(or("hello", "world"));              // "hello" (this behavior is non-obvious, research more!)
 console.log("---Done or----");
 
-/*Define a function named and that takes in two input arguments and returns the result of a logical and operation of both inputs.
+/!*Define a function named and that takes in two input arguments and returns the result of a logical and operation of both inputs.
 
  and(true, true)                    // true
  and(true, false)                   // false
  and(false, true)                   // false
  and(false, false)                  // false
- and("hello", "world")              // "world" (this behavior is non-obvious, research more)*/
+ and("hello", "world")              // "world" (this behavior is non-obvious, research more)*!/
 
 let and = function (input1, input2) {
     return (input1 && input2);
@@ -268,16 +315,16 @@ console.log(and(true, true));                    // true
 console.log(and(true, false));                   // false
 console.log(and(false, true));                   // false
 console.log(and(false, false));                  // false
-console.log(and("hello", "world"));              // "world" (this behavior is non-obvious, research more)*/
+console.log(and("hello", "world"));              // "world" (this behavior is non-obvious, research more)*!/
 console.log("---Done and----");
 
-/*Define a function named concat that takes in two input arguments. If both arguments are strings, then return the concatenated result. If two numbers are provided, then return the string concatenation of each set of numerals.
+/!*Define a function named concat that takes in two input arguments. If both arguments are strings, then return the concatenated result. If two numbers are provided, then return the string concatenation of each set of numerals.
 
 concat("code", "up")                // "codeup"
 concat("connect", 4)                // "connect4"
 concat("hello", "world")            // "helloworld"
 concat(4, 2)                        // "42"
-concat(true, true)                  // "truetrue"*/
+concat(true, true)                  // "truetrue"*!/
 // let concat = function (input1, input2) {
 //     return input1.toString() + input2.toString();
 // };
@@ -290,3 +337,4 @@ console.log(concat(4, 2));                        // "42"
 console.log(concat(true, true));                  // "truetrue"
 console.log("---Done concat----");
 
+*/
