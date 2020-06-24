@@ -48,10 +48,20 @@ function isVowel(char) {
     }
 }
 
-// Define a function named combineStrings that has two parameters, if both parameters are strings, then return a concatenated string of both parameters.
+// Define a function named combineStrings that has two parameters, if both parameters are strings, then return a concatenated string of both parameters. Otherwise, return false.
+function combineStrings(str1, str2) {
+    if (typeof str1 === "string" && typeof str2 === "string") {
+        return str1 + str2;
+    }
+    // return false;
+}
 
-
-
+console.log(combineStrings("Hello", "World")); // HelloWorld
+console.log(typeof combineStrings("string", "string")) // "string"
+console.log(combineStrings("sun", "set")); // sunset
+console.log(combineStrings("Number", 1)); // false
+console.log(combineStrings(true, true)); // false
+console.log(combineStrings('true', 'true')); // truetrue
 
 /*
 console.log(isVowel('e')); // true
@@ -62,8 +72,6 @@ console.log(isVowel('Y')); // false
 console.log(isVowel(1)); // false
 console.log(isVowel(-1)); // false
 */
-
-
 
 
 /*

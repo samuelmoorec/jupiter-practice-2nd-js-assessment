@@ -83,21 +83,27 @@
         })
     })
 
-    describe('or', () => {
+    describe('combineStrings', () => {
         it('should be a defined function', () => {
-            expect(typeof or).toBe('function')
+            expect(typeof combineStrings).toBe('function')
         })
-        it('should return true when passed true and true', () => {
-            expect(or(true, true)).toBe(true);
+        it('should return a string type when passed two strings as inputs', () => {
+            expect(typeof combineStrings("string", "string")).toBe("string")
         })
-        it('should return true when passed true and one false as inputs', () => {
-            expect(or(true, false)).toBe(true)
+        it('should return a "HelloWorld" when passed "Hello" and "World" as string inputs', () => {
+            expect(combineStrings("Hello", "World")).toBe("HelloWorld")
         })
-        it('should return false when passed two false values', () => {
-            expect(or(false, false)).toBe(false)
+        it('should return false when any argument is not a string', () => {
+            expect(combineStrings(1, "string")).toBe(false)
         })
-        it('should return "hello" when passed the inputs "hello" and "world" in that order', () => {
-            expect(or("hello", "world")).toBe("hello")
+        it('should return "sunset" when passed "sun" and "set" as string inputs', () => {
+            expect(combineStrings("sun", "set")).toBe("sunset")
+        })
+        it('should return false when passed boolean values true and true ', () => {
+            expect(combineStrings(true, true)).toBe(false)
+        })
+        it('should return "truetrue" when passed "true" and "true" as string inputs', () => {
+            expect(combineStrings("true", "true")).toBe("truetrue")
         })
     })
 
