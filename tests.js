@@ -51,6 +51,12 @@
         it('should return false if NaN is passed', () => {
             expect(isOdd(NaN)).toBe(false);
         })
+        it('should return false if null is passed', () => {
+            expect(isOdd(null)).toBe(false);
+        })
+        it('should return false if the number 0 is passed', () => {
+            expect(isOdd(0)).toBe(false);
+        })
     })
 
     describe('isVowel', () => {
@@ -81,6 +87,12 @@
         it('should return false if the number -1 is passed', () => {
             expect(isVowel(-1)).toBe(false);
         })
+        it('should return false if null is passed', () => {
+            expect(isVowel(null)).toBe(false);
+        })
+        it('should return false if "hello" is passed', () => {
+            expect(isVowel("hello")).toBe(false);
+        })
     })
 
     describe('combineStrings', () => {
@@ -107,184 +119,64 @@
         })
     })
 
-    describe('isEqual', () => {
+    describe('sumArgs', () => {
         it('should be a defined function', () => {
-            expect(typeof isEqual).toBe('function');
+            expect(typeof sumArgs).toBe('function');
         })
-        it('should return a boolean value', () => {
-            expect(typeof isEqual(randomNumber, randomNumber)).toBe('boolean')
+        it('should return 6 when 1, 2, and 3 are passed in as numbers', () => {
+            expect(sumArgs(1, 2, 3)).toBe(6);
         })
-        it('should return true when passed 2 and "2" as inputs since they are equal in value', () => {
-            expect(isEqual(2, "2")).toBe(true)
+        it('should return false when 1, 2, and 3 are passed in as strings', () => {
+            expect(sumArgs("1", "2", "3")).toBe(false);
         })
-        it('should return true when passed "3.6" and 3.6 as inputs, since they have the same value', () => {
-            expect(isEqual(3.6, "3.6")).toBe(true)
+        it('should return false when any string is passed in.', () => {
+            expect(sumArgs("1", 2, 3)).toBe(false);
         })
-        it('should return true when passed true and 1, since == performs type coersion', () => {
-            expect(isEqual(true, 1)).toBe(true)
+        it('should return false when any boolean is passed in.', () => {
+            expect(sumArgs(true, 2, 3)).toBe(false);
         })
-        it('should return true when passed 0 and false, since == performs type coersion', () => {
-            expect(isEqual(0, false)).toBe(true)
+        it('should return 5 when 10, -2, and -3 are passed in as numbers.', () => {
+            expect(sumArgs(10, -2, -3)).toBe(5);
         })
-        it('should return false when passed "java" and "javascript" as inputs, since they are not equal in value', () => {
-            expect(isEqual("java", "javascript")).toBe(false)
+        it('should return NaN when three NaN\'s are passed in as arguments.', () => {
+            expect(sumArgs(NaN, NaN, NaN)).toBeNaN();
         })
-        it('should return false when passed -4 and 5 as inputs', () => {
-            expect(isEqual(-4, 5)).toBe(false)
+        it('should return false when [1,2], [3,4], and [5,6] are passed in as arguments.', () => {
+            expect(sumArgs([1, 2], [3,4], [5,6])).toBe(false);
         })
+        it('should return false when a null is passed in.', () => {
+            expect(sumArgs(null, 1, 2)).toBe(false);
+        })
+
     })
 
-    describe('isIdentical', () => {
+    describe('truncateString', () => {
         it('should be a defined function', () => {
-            expect(typeof isIdentical).toBe('function');
+            expect(typeof truncateString).toBe('function');
         })
-        it('should return a boolean value when called with a random number and random boolean since they are not the same data type or value', () => {
-            expect(isIdentical(randomNumber, randomBoolean)).toBe(false)
+        it('should return "hello worl" if "hello world" and 1 are passed in as arguments', () => {
+            expect(truncateString("hello world", 1)).toBe("hello worl");
         })
-        it('should return true when passed ' + randomNumber + ' and ' + randomNumber, () => {
-            expect(isIdentical(randomNumber, randomNumber)).toBe(true)
+        it('should return "super" if "superman" and 3 are passed in as arguments', () => {
+            expect(truncateString("superman", 3)).toBe("super");
         })
-        it('should return true when passed ' + randomBoolean + ' and ' + randomBoolean, () => {
-            expect(isIdentical(randomBoolean, randomBoolean)).toBe(true)
+        it('should return false if a string is not passed in passed in as the first argument', () => {
+            expect(truncateString(true, 1)).toBe(false);
         })
-        it('should return false when passed 2 and "5", since they are not the same value and not the same data type', () => {
-            expect(isIdentical(2, "5")).toBe(false)
+        it('should return false if a number is not passed in passed in as the second argument', () => {
+            expect(truncateString("superman", true)).toBe(false);
         })
-        it('should return false when passed "3" and 3, since they are not the same data type', () => {
-            expect(isIdentical("3", 3)).toBe(false)
+        it('should return "tru" if "true" and 1 are passed in as arguments', () => {
+            expect(truncateString("true", 1)).toBe("tru");
         })
-    })
-
-    describe('isEven', () => {
-        it('should be a defined function', () => {
-            expect(typeof isEven).toBe('function');
+        it('should return "" (empty string) if "texas" and 7 are passed in as arguments', () => {
+            expect(truncateString("texas", 7)).toBe("");
         })
-        it('should return a boolean value when passed any number', () => {
-            expect(typeof isEven(randomNumber)).toBe('boolean')
+        it('should return false if "san antonio" and "texas" are passed in as arguments', () => {
+            expect(truncateString("san antonio", "texas")).toBe(false);
         })
-        it('should return true when passed 2', () => {
-            expect(isEven(2)).toBe(true)
-        })
-        it('should return true when passed -4', () => {
-            expect(isEven(-4)).toBe(true)
-        })
-        it('should return true when passed "8"', () => {
-            expect(isEven("8")).toBe(true)
-        })
-        it('should return true when passed 0', () => {
-            expect(isEven(0)).toBe(true)
-        })
-        it('should return false when passed the number 3', () => {
-            expect(isEven(3)).toBe(false)
-        })
-        it('should return false when passed a non-numeric string like "banana"', () => {
-            expect(isEven("banana")).toBe(false)
-        })
-        it('should return false when passed the boolean value ' + randomBoolean, () => {
-            expect(isEven(randomBoolean)).toBe(false)
-        })
-    })
-
-    describe('addOne', () => {
-        it('should be a defined function', () => {
-            expect(typeof addOne).toBe('function');
-        })
-        it('should return a number when passed a number', () => {
-            expect(addOne(randomNumber)).toBe(randomNumber + 1)
-        })
-        it('should return -4 when passed "-5"', () => {
-            expect(addOne("-5")).toBe(-4)
-        })
-        it('should return Infinity when passed Infinity', () => {
-            expect(addOne(Infinity)).toBe(Infinity)
-        })
-        it('should return 1 when passed "0"', () => {
-            expect(addOne("0")).toBe(1)
-        })
-    })
-
-    describe('isFalse', () => {
-        it('should be a defined function', () => {
-            expect(typeof isFalse).toBe('function');
-        })
-        it('should return a boolean when passed any value', () => {
-            expect(typeof isFalse(randomBoolean)).toBe('boolean')
-        })
-        it('should return true when passed the value of false', () => {
-            expect(isFalse(false)).toBe(true)
-        })
-        it('should return false when passed true', () => {
-            expect(isFalse(true)).toBe(false)
-        })
-        it('should return false when passed undefined', () => {
-            expect(isFalse(undefined)).toBe(false)
-        })
-        it('should return false when passed null', () => {
-            expect(isFalse(null)).toBe(false)
-        })
-        it('should return false when passed the number ' + randomNumber, () => {
-            expect(isFalse(randomNumber)).toBe(false)
-        })
-        it('should return false when passed any string', () => {
-            expect(isFalse("hello world")).toBe(false)
-        })
-    })
-
-    describe('not', () => {
-        it('should be a defined function', () => {
-            expect(typeof not).toBe('function');
-        })
-        it('should return true when passed false', () => {
-            expect(not(false)).toBe(true)
-        })
-        it('should return true when passed null', () => {
-            expect(not(null)).toBe(true)
-        })
-        it('should return true when passed 0', () => {
-            expect(not(0)).toBe(true) })
-        it('should return true when passed undefined', () => {
-            expect(not(undefined)).toBe(true)
-        })
-        it('should return false when passed 5', () => {
-            expect(not(5)).toBe(false)
-        })
-        it('should return true when passed NaN', () => {
-            expect(not(NaN)).toBe(true)
-        })
-        it('should return true when passed the empty string ""', () => {
-            expect(not("")).toBe(true)
-        })
-        it('should return false when passed true', () => {
-            expect(not(true)).toBe(false)
-        })
-        it('should return false when passed the string "hello"', () => {
-            expect(not("hello")).toBe(false)
-        })
-        it('should return false when passed the number 123', () => {
-            expect(not(123)).toBe(false)
-        })
-    })
-
-
-
-    describe('isTrue', () => {
-        it('should be a defined function', () => {
-            expect(typeof isTrue).toBe('function')
-        })
-        it('should return a boolean value', () => {
-            expect(typeof isTrue(randomBoolean)).toBe('boolean')
-        })
-        it('should return true when passed the boolean true', () => {
-            expect(isTrue(true)).toBe(true)
-        })
-        it('should return false when passed the boolean false as the input', () => {
-            expect(isTrue(false)).toBe(false)
-        })
-        it('should return false when passed a number as the input', () => {
-            expect(isTrue(randomNumber)).toBe(false);
-        })
-        it('should return false when passed a string as input', () => {
-            expect(isTrue("hello world")).toBe(false);
+        it('should return "code" if "codeup" and 2 are passed in as arguments', () => {
+            expect(truncateString("codeup", 2)).toBe("code");
         })
     })
 
