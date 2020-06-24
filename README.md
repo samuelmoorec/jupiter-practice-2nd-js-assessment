@@ -1,131 +1,80 @@
-➢ Ten Functions 
+➢ Additional JS Assessment Practice
 =================
 
-"Ten Functions" is a prepared environment for practicing introductory function writing with automated tests for feedback.
+This project is intended as an additional resource on top of the Javascript assessment practice.
 
 
 ## Setup Instructions
 - If you want more practice working with Git and Github, fork this project on GitHub and then clone your fork to your development box, so you have both your own local copy and a remote in GitHub where you can push your solutions.
-- Go here https://glitch.com/edit/#!/remix/ten-functions if you only want to focus on the problems and side-step the git process.
 
 ## Getting Started
 0. Setup your own copy of the code using the instructions above
 1. Read the exercise prompts listed below
 2. Define your functions that solve the prompts inside of `solutions.js`.
-3. Use feedback to improve responses
-4. Submit issues and patches to the <a href="https://github.com/ryanorsinger/ten-functions/issues">Ten Functions project</a>
 
 
-## The "Ten Functions" Exercises 👟
-0. The comments to the right of the function call example demonstrate the output of the function's operation on the provided input(s). Add your function definitions to `solutions.js`. Refresh `results.html` to run automated tests for feedback on your solutions.
+## Exercises 👟
+ The comments to the right of the function call example demonstrate the output of the function's operation on the provided input(s). Add your function definitions to `solutions.js`. Refresh `index.html` to run automated tests for feedback on your solutions.
 
-1. Define a function named `isTrue` that takes in any input and returns true if the input provided is exactly equal to `true` in value and data type.
+1. Define a function named `isOdd` that takes in any input and returns `true` if the input is an odd number, return `false` for any other situation. You do not need to consider floating-point and decimal numbers.
         
-        isTrue(true)             // true
-        isTrue(false)            // false
-        isTrue(0)                // false
-        isTrue(null)             // false
-        isTrue("true")           // false
-        isTrue("Banana")         // false
-        isTrue([1, 2])           // false
+        isOdd(3)                               // true
+        isOdd(2)                               // false
+        isOdd(73)                              // true
+        isOdd(200)                             // false
+        isOdd("23")                            // true
+        isOdd("20")                            // false
+        isOdd("three")                         // false
+        isOdd(NaN)                             // false
+        isOdd(null)                            // false
+        isOdd(0)                               // false
 
-2. Define a function named `isFalse` that takes in a value and returns a true if and only if the provided input is equal to false in both type and value.
+2. Define a function named `isVowel` that takes in a single character and returns `true` if the character is a vowel. *Not including the letter 'y' & 'Y'.
         
-        isFalse(false)             // true
-        isFalse(true)              // false
-        isFalse(0)                 // false
-        isFalse(null)              // false
-        isFalse("")                // false
-        isFalse("Banana")          // false
-        isFalse([1, 2])            // false
+        isVowel('e')                           // true
+        isVowel('u')                           // true
+        isVowel('I')                           // true
+        isVowel('Q')                           // false
+        isVowel('Y')                           // false
+        isVowel(1)                             // false
+        isVowel(-1)                            // false
+        isVowel(null)                          // false
+        isVowel("hello")                       // false
 
-3. Define a function named `not` that takes in any input and returns the boolean opposite of the provided input.
+3. Define a function named `combineStrings` that takes in two parameters, if both parameters are strings, then return a concatenated string of both parameters. Otherwise, return `false`.
         
-        not(false)                  // true
-        not(0)                      // true
-        not("")                     // true
-        not(null)                   // true
-        not(NaN)                    // true
-        not(undefined)              // true
-        not(true)                   // false
-        not("something")            // false
-        not(Infinity)               // false
-        not(123)                    // false
+        combineStrings("Hello", "World")       // HelloWorld
+        combineStrings("sun", "set")           // sunset
+        combineStrings("Number", 1)            // false
+        combineStrings(true, true)             // false
+        combineStrings('true', 'true')         // truetrue
 
-4. Define a function named `addOne` that takes in a single input. If the input is a number or a numeric string, return the value plus one.
+4. Define a function named `sumArgs` that takes in three parameters, if they are numbers then add them together. Otherwise return `false`.
 
-        addOne(0)                    // 1
-        addOne(2)                    // 3
-        addOne(-5)                   // -4 
-        addOne(5.789)                // 6.789
-        addOne(Infinity)             // Infinity
-        addOne("2")                  // 3
-        addOne("0")                  // 1
-        addOne("banana")             // NaN
-        addOne(true)                 // NaN
-        addOne(NaN)                  // NaN
+       sumArgs(1, 2, 3)                        // 6
+       sumArgs("1", "2", "3")                  // false
+       sumArgs("1", 2, 3)                      // false
+       sumArgs(true, 2, 3)                     // false
+       sumArgs(10, -2, -3)                     // 5
+       sumArgs(NaN, NaN, NaN)                  // NaN
+       sumArgs([1, 2], [3,4], [5,6])           // false
+       sumArgs(null, 1, 2                      // false
         
-
-5. Define a function named `isEven` that takes in a single input. If the input is an even number or a string containing an even number, return `true`. Any other input should return false for the output.
+5. Define a function named `truncateString` that takes in a string as the first parameter and a number as the second parameter. Truncate (shorten) the string by the length based on the argument passed in. For example, truncateString("hello world",1) would return "hello worl"
         
-        isEven(2)                   // true
-        isEven(-8)                  // true
-        isEven(0)                   // true
-        isEven("42")                // true
-        isEven(1)                   // false
-        isEven("-3")                // false
-        isEven(false)               // false
-        isEven("banana")            // false
+        truncateString("hello world", 1)        // "hello worl"
+        truncateString("superman", 3)           // "super"
+        truncateString(true, 1)                 // false
+        truncateString("superman", true)        // false
+        truncateString("true", 1                // "tru"
+        truncateString("texas", 7)              // "" (empty string)
+        truncateString("san antonio", "texas")  // false
+        truncateString("codeup", 2)             // code
 
-6. Define a function named `isIdentical` that takes in two input arguments. If each input is equal both in data type and in value, then return `true`. If the values are not the same data type or not the same value, return `false`.
-
-        isIdentical(3, 3)                     // true
-        isIdentical(false, false)             // true
-        isIdentical("hello", "hello")         // true
-        isIdentical(3, 3.0)                   // true
-        isIdentical(undefined, undefined)     // true
-        isIdentical(2, "2")                   // false
-        isIdentical("javascript", "java")     // false
-
-7. Define a function named `isEqual` that takes in two input arguments. If each argument is equal only in value, then return true. Otherwise return false.
-  
-        isEqual(3, "3")                       // true
-        isEqual("abc123", "abc123")           // true
-        isEqual(true, 1)                      // true
-        isEqual(0, false)                     // true
-        isEqual(4, -5)                        // false
-        isEqual("java", "javascript")         // false
-
-8. Define a function named `or` that takes in two input arguments. The output returned should be the result of an `or` operation on both inputs.
-        
-        or(true, true)                    // true
-        or(true, false)                   // true
-        or(false, true)                   // true
-        or(false, false)                  // false
-        or("hello", "world")              // "hello" (this behavior is non-obvious, research more!)
-      
-        
-
-9. Define a function named `and` that takes in two input arguments and returns the result of a logical `and` operation of both inputs.
-  
-        and(true, true)                    // true
-        and(true, false)                   // false
-        and(false, true)                   // false
-        and(false, false)                  // false
-        and("hello", "world")              // "world" (this behavior is non-obvious, research more)
-
-
-10. Define a function named `concat` that takes in two input arguments. If both arguments are strings, then return the concatenated result. If two numbers are provided, then return the string concatenation of each set of numerals.
-        
-        concat("code", "up")                // "codeup"
-        concat("connect", 4)                // "connect4"
-        concat("hello", "world")            // "helloworld"
-        concat(4, 2)                        // "42"
-        concat(true, true)                  // "truetrue"
+6. 
         
 ## Files in this project
-- `index.html` is the welcome page
-- `results.html` shows the ouptut from automated test data
+- `index.html` shows the ouptut from automated test data
 - `solutions.js` is where you will write your function definitions that solve the exercises below
 - `tests.js` is the suite of automated tests that call your functions in `solutions.js` with different inputs.
 
@@ -171,9 +120,6 @@ function isBoolean(input) {
 
 
 ## About
-- Proudly hosted and edited on <a href="https://glitch.com">Glitch!</a> 🎏
 - Testing framework: <a href="https://github.com/jasmine/jasmine">Jasmine</a>
-- Made by [Ryan Orsinger](https://ryanorsinger.glitch.me/) 
+- Made by [Hung Ly & Tristan Crawford]
 -------------------
-
-\ ゜o゜)ノ

@@ -50,8 +50,7 @@ function isVowel(char) {
     }
 }
 
-/*
-console.log(isVowel('e')); // true
+/*console.log(isVowel('e')); // true
 console.log(isVowel('u')); // true
 console.log(isVowel('I')); // true
 console.log(isVowel('Q')); // false
@@ -59,8 +58,7 @@ console.log(isVowel('Y')); // false
 console.log(isVowel(1)); // false
 console.log(isVowel(-1)); // false
 console.log(isVowel(null)); // false
-console.log(isVowel("hello")); // false
-*/
+console.log(isVowel("hello")); // false*/
 
 
 // Define a function named combineStrings that takes in two parameters, if both parameters are strings, then return a concatenated string of both parameters. Otherwise, return false.
