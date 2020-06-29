@@ -59,9 +59,9 @@ This project is intended as an additional resource on top of the Javascript asse
        sumArgs(NaN, NaN, NaN)                  // NaN
        sumArgs([1, 2], [3,4], [5,6])           // false
        sumArgs(null, 1, 2                      // false
-        
+
 5. Define a function named `truncateString` that takes in a string as the first parameter and a number as the second parameter. Truncate (shorten) the string by the length based on the argument passed in. For example, truncateString("hello world",1) would return "hello worl"
-        
+
         truncateString("hello world", 1)        // "hello worl"
         truncateString("superman", 3)           // "super"
         truncateString(true, 1)                 // false
@@ -71,8 +71,54 @@ This project is intended as an additional resource on top of the Javascript asse
         truncateString("san antonio", "texas")  // false
         truncateString("codeup", 2)             // code
 
-6. 
-        
+6. Define a function named `reverseSign` that takes in a number as the first parameter. Reverse the sign of the argument passed in, return false if the argument is not a number. For example, `reverseSign(1)` would return `-1`.
+
+        reverseSign(1)      // -1
+        reverseSign(-2)     // 2
+        reverseSign("3")    // -3
+        reverseSign("test") // false
+        reverseSign([])     // false
+
+7. Define a function named `makeUppercase` that takes in a string as the first parameter. Return the argument passed in entirely uppercased, return false if the argument is not a string. For example, `makeUppercase("test")` would return `"TEST"`.
+
+        makeUppercase("doom")   // DOOM
+        makeUppercase("CoDeUp") // CODEUP
+        makeUppercase("DONE")   // DONE
+        makeUppercase(100)      // false
+        makeUppercase(true)     // false
+        makeUppercase([])       // false
+
+8. Define a function named `isMultiple` that takes in two `number` parameters. Return `true` if one argument is a multiple of the other, `false` otherwise. For example, `isMultiple(2, 6)` would return `true`.
+
+        isMultiple(13, 26) // true
+        isMultiple(10, 5)  // true
+        isMultiple(5, 13)  // false
+        isMultiple(2, 3)   // false
+        isMultiple("test") // false
+        isMultiple(100)    // false
+        isMultiple(true)   // false
+        isMultiple([])     // false
+
+9. Define a function named `canPurchase` that takes in two `number` parameters, `billAmount` & `availableCash`. Return `true` if `availableCash` is greater than `billAmount`, `false` otherwise. For example, `canPurchase(10, 20)` would return `true`.
+
+        canPurchase(100, 250)    // true
+        canPurchase("50", "100") // true
+        canPurchase(100, 90)     // false
+        canPurchase("80", "30")  // false
+        canPurchase()            // false
+        canPurchase("a", "b")    // false
+
+10. Define a function named `getInitials` that takes in two `string` parameters, `first` & `last`. Return the names combined and formatted as initials, return `false` if either parameter is invalid. For example, `getInitials("John", "Snow")` would return `"J.S."`
+
+        getInitials("Daniel", "Fryar") // D.F.
+        getInitials("David", "Stephens") // D.S.
+        getInitials("Hung", "Ly") // H.L.
+        getInitials("Tristan", "Crawford") // T.C.
+
+        getInitials() // false
+        getInitials(1, 2) // false
+        getInitials("3", "4") // false
+
 ## Files in this project
 - `index.html` shows the ouptut from automated test data
 - `solutions.js` is where you will write your function definitions that solve the exercises below

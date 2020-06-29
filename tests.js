@@ -1,21 +1,6 @@
-(function() {
+(function () {
 
     "use strict";
-
-    /**TODO: Need to update this list
-     * Tests for the following functions. See README.md for more detail.
-     * isTrue
-     * isFalse
-     * not
-     * addOne
-     * isEven
-     * isIdentical
-     * isEqual
-     * or
-     * and
-     * concat
-     */
-
 
     const randomBoolean = Boolean(Math.round(Math.random()))
     const randomNumber = Math.ceil(Math.random() * 100)
@@ -142,7 +127,7 @@
             expect(sumArgs(NaN, NaN, NaN)).toBeNaN();
         })
         it('should return false when [1,2], [3,4], and [5,6] are passed in as arguments.', () => {
-            expect(sumArgs([1, 2], [3,4], [5,6])).toBe(false);
+            expect(sumArgs([1, 2], [3, 4], [5, 6])).toBe(false);
         })
         it('should return false when a null is passed in.', () => {
             expect(sumArgs(null, 1, 2)).toBe(false);
@@ -180,4 +165,123 @@
         })
     })
 
+    describe('reverseSign', () => {
+        it('should be a defined function', () => {
+            expect(typeof reverseSign).toBe('function');
+        })
+        it('should return a number', () => {
+            expect(typeof reverseSign(1)).toBe('number');
+        })
+        it('should return 1 when passed the number -1', () => {
+            expect(reverseSign(-1)).toBe(1);
+        })
+        it('should return -1 when passed the number 1', () => {
+            expect(reverseSign(1)).toBe(-1);
+        })
+        it('should return -1 when passed the numeric string "1"', () => {
+            expect(reverseSign("1")).toBe(-1);
+        })
+        it('should return false when no arguments are passed', () => {
+            expect(reverseSign()).toBe(false);
+        })
+        it('should return false when the argument is NOT a number', () => {
+            expect(reverseSign("")).toBe(false);
+            expect(reverseSign(true)).toBe(false);
+            expect(reverseSign([])).toBe(false);
+            expect(reverseSign({})).toBe(false);
+        })
+    })
+
+    describe('makeUppercase', () => {
+        it('should be a defined function', () => {
+            expect(typeof makeUppercase).toBe('function');
+        })
+        it('should return "AAAA" when "aaaa" is passed', () => {
+            expect(makeUppercase('aaaa')).toBe('AAAA');
+        })
+        it('should return "BBBB" when "bBbB" is passed', () => {
+            expect(makeUppercase('bBbB')).toBe('BBBB');
+        })
+        it('should return "CCCC" when "CCCC" is passed', () => {
+            expect(makeUppercase('CCCC')).toBe('CCCC');
+        })
+        it('should return false when no arguments are passed', () => {
+            expect(makeUppercase()).toBe(false);
+        })
+        it('should return false when the argument is a numeric string', () => {
+            expect(makeUppercase("123")).toBe(false);
+        })
+        it('should return false when the argument is NOT a string', () => {
+            expect(makeUppercase(100)).toBe(false);
+            expect(makeUppercase(true)).toBe(false);
+            expect(makeUppercase([])).toBe(false);
+            expect(makeUppercase({})).toBe(false);
+        })
+    })
+
+    describe('isMultiple', () => {
+        it('should be a defined function', () => {
+            expect(typeof isMultiple).toBe('function');
+        })
+        it('should return true when 2 & 6 are passed', () => {
+            expect(isMultiple(2, 6)).toBe(true);
+        })
+        it('should return true when 13 & 26 are passed', () => {
+            expect(isMultiple(13, 26)).toBe(true);
+        })
+        it('should return false when 5 & 13 are passed', () => {
+            expect(isMultiple(5, 13)).toBe(false);
+        })
+        it('should return false when both arguments are the same', () => {
+            expect(isMultiple(1, 1)).toBe(false);
+        })
+        it('should return false when no arguments are passed', () => {
+            expect(isMultiple()).toBe(false);
+        })
+    })
+
+    describe('canPurchase', () => {
+        it('should be a defined function', () => {
+            expect(typeof canPurchase).toBe('function');
+        })
+        it('should return true when availableCash > billAmount', () => {
+            expect(canPurchase(100, 250)).toBe(true);
+        })
+        it('should return false when availableCash < billAmount', () => {
+            expect(canPurchase(100, 90)).toBe(false);
+        })
+        it('should return false when no arguments are passed', () => {
+            expect(canPurchase()).toBe(false);
+        })
+    })
+
+    describe('getInitials', () => {
+        it('should be a defined function', () => {
+            expect(typeof getInitials).toBe('function')
+        })
+        it('should return "D.F." when "Daniel" & "Fryar" are passed', () => {
+            expect(getInitials('Daniel', 'Fryar')).toBe('D.F.');
+        })
+        it('should return "D.S." when "David" & "Stephens" are passed', () => {
+            expect(getInitials('David', 'Stephens')).toBe('D.S.');
+        })
+        it('should return "H.L." when "Hung" & "Ly" are passed', () => {
+            expect(getInitials('Hung', 'Ly')).toBe('H.L.');
+        })
+        it('should return "T.C." when "Tristan" & "Crawford" are passed', () => {
+            expect(getInitials('Tristan', 'Crawford')).toBe('T.C.');
+        })
+        it('should return false when no arguments are passed', () => {
+            expect(getInitials()).toBe(false);
+        })
+        it('should return false when numbers are passed', () => {
+            expect(getInitials(1, 2)).toBe(false);
+        })
+        it('should return false when numeric strings are passed', () => {
+            expect(getInitials("3", "4")).toBe(false);
+        })
+        it('should return false when empty strings are passed', () => {
+            expect(getInitials("", "")).toBe(false);
+        })
+    })
 })();
